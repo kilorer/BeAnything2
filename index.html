@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avrah KeDabra</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0e0e0e;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    input {
+      padding: 12px 20px;
+      font-size: 1rem;
+      margin: 10px 0;
+      border: 1px solid #fff;
+      background: transparent;
+      color: #fff;
+      text-align: center;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: 1px solid #fff;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      background: #fff;
+      color: #0e0e0e;
+    }
+
+    #manifeste {
+      display: none;
+      padding: 40px 10%;
+      max-width: 800px;
+      margin: auto;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #manifeste.show {
+      opacity: 1;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    .list {
+      margin: 20px 0;
+    }
+
+    .list span {
+      display: block;
+      margin: 5px 0;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Écran d'entrée -->
+  <div id="gate">
+    <h1>"Avrah KeDabra"</h1>
+    <p>Entre le code pour accéder au manifeste :</p>
+    <input type="text" id="codeInput" placeholder="Code ici">
+    <button id="submitCode">Accéder</button>
+  </div>
+
+  <!-- Contenu du manifeste -->
+  <div id="manifeste">
+    <h2>Niveaux de départ</h2>
+    <div class="list">
+      <span>Financier</span>
+      <span>Mental</span>
+      <span>Environnement</span>
+    </div>
+
+    <h2>Apprentissage à la dure</h2>
+    <div class="list">
+      <span>Chute</span>
+      <span>Solitude</span>
+      <span>Responsabilité</span>
+      <span>Relèvement</span>
+    </div>
+
+    <h2>Le Jeu</h2>
+    <div class="list">
+      <span>Ce que les gens croient : Attendre, Parler, Espérer</span>
+      <span>Ce que j’ai compris : Incarner, Agir, Devenir</span>
+    </div>
+
+    <h2>Incarner</h2>
+    <div class="list">
+      <span>Corps</span>
+      <span>Esprit</span>
+      <span>Discipline</span>
+      <span>Constance</span>
+    </div>
+
+    <h2>À qui je parle</h2>
+    <div class="list">
+      <span>Entrepreneurs</span>
+      <span>Businessmen</span>
+      <span>Hustlers</span>
+      <span>Doers</span>
+    </div>
+
+    <h2>Intention</h2>
+    <div class="list">
+      <span>Partager</span>
+      <span>Transmettre</span>
+      <span>Sans convaincre</span>
+    </div>
+
+    <h2>Suite</h2>
+    <div class="list">
+      <span>Observation</span>
+      <span>Stratégie</span>
+      <span>Exécution</span>
+    </div>
+  </div>
+
+  <script>
+    const button = document.getElementById("submitCode");
+    const gate = document.getElementById("gate");
+    const manifeste = document.getElementById("manifeste");
+
+    button.addEventListener("click", () => {
+      const input = document.getElementById("codeInput").value;
+      if(input === "Banything") {
+        // cacher la porte
+        gate.style.display = "none";
+
+        // montrer le manifeste avec fade-in
+        manifeste.style.display = "block";
+        setTimeout(() => {
+          manifeste.classList.add("show");
+        }, 50);
+
+        // après 3 secondes, fade out et remplacer par phrase
+        setTimeout(() => {
+          manifeste.style.opacity = "0";
+          setTimeout(() => {
+            manifeste.innerHTML = '<h1>"La patience adoucit tout mal sans remède."</h1>';
+            manifeste.style.opacity = "1";
+          }, 1000);
+        }, 3000);
+
+      } else {
+        alert("Code incorrect, réessaie");
+      }
+    });
+  </script>
+
+</body>
+</html>
